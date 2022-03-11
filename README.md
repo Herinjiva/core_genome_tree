@@ -62,3 +62,5 @@ iqtree -s msa_outputname_ss.afa -nt AUTO -ntmax AUTO
 ```
 
 # ALL at once
+If you want phylogenetic inference directly by using the core genome, use the core_genome_tree.sh script. But, be sure you have BLAST, MUSCLE and IQTREE installed.
+If you work on a cluster, add the working directory ad the beginning of the script and instead of calling BLAST,MUSCLE and IQTREE directly, use absolute path.
