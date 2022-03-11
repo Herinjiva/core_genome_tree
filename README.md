@@ -32,16 +32,15 @@ Once you have your blast result, run the above python script to determine the co
 ```
 python make_core_genome;py **blast_output** **run_name** **core_output**
 ```
-
 This script will generate two .json files: 
 - core_run_name.txt : the list of core genome for each species in dictionnary format (key : species ID, value : list of protein belonging to the core)
 - hommolog_run_name.txt : dictionnary of homologs for each proteins of each species in other species.
 
-At this step, you only have the list of the core genome. In order to construct a fasta file of the core, use the python script core_extract.py. This script will put holomologous protein which constitute the core genome in a fasta file. The number of fasta file created is the size of the core genome.
+At this step, you only have the list of the core genome. In order to construct a fasta file of the core, use the python script core_extract.py. This script will put holomologous protein,which constitute the core genome, in a fasta file. The number of fasta file created is the size of the core genome.
 ```
 python core_extract.py -core_list core_run_name.txt -homolog hommolog_run_name.txt -taxa_name prot/
 ```
-output : run_name_homolog
+output: run_name_homolog  
 
 # Multiple sequence alignement.
 **Requirements** : MUSCLE (Edgar, R.C. MUSCLE: a multiple sequence alignment method with reduced time and space complexity)
@@ -50,7 +49,7 @@ muscle.sh will align sequences inside every homologous group.
 ```
 ./muscle.sh
 ```
-output : 
+output: run_name_homolog_msa.afa  
 After the MSA, we build a supersequence for each species
 ```
 python builSuperSeq.py -input run_name_homolog_msa.afa -output output_name
@@ -59,5 +58,7 @@ python builSuperSeq.py -input run_name_homolog_msa.afa -output output_name
 # build the core genome tree
 For the the phylognentic inference, we chose IQ-tree( L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, and B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies), the successor of IQPNNI and TREE-PUZZLE software.
 ```
-iqtree -s leotiomycetes_ss.afa -nt AUTO -ntmax AUTO
+iqtree -s msa_outputname_ss.afa -nt AUTO -ntmax AUTO
 ```
+
+# ALL at once
