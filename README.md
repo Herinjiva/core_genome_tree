@@ -41,8 +41,23 @@ At this step, you only have the list of the core genome. In order to construct a
 ```
 python core_extract.py -core_list core_run_name.txt -homolog hommolog_run_name.txt -taxa_name prot/
 ```
+output : run_name_homolog
 
-# alignement and trimming
-**Requirements** : MUSCLE (Edgar, R.C. MUSCLE: a multiple sequence alignment method with reduced time and space complexity) and trimAl (Salvador Capella-Gutiérrez, José M. Silla-Martínez, Toni Gabaldón, trimAl: a tool for automated alignment trimming in large-scale phylogenetic analyses)
+# Multiple sequence alignement.
+**Requirements** : MUSCLE (Edgar, R.C. MUSCLE: a multiple sequence alignment method with reduced time and space complexity)
+To launch the phylogenetic inference tool, we need an alignement of each homologous group. We use MUSCLE to perform this task.
+muscle.sh will align sequences inside every homologous group.
+```
+./muscle.sh
+```
+output : 
+After the MSA, we build a supersequence for each species
+```
+python builSuperSeq.py -input run_name_homolog_msa.afa -output output_name
+```
 
 # build the core genome tree
+For the the phylognentic inference, we chose IQ-tree( L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, and B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies), the successor of IQPNNI and TREE-PUZZLE software.
+```
+iqtree -s leotiomycetes_ss.afa -nt AUTO -ntmax AUTO
+```
