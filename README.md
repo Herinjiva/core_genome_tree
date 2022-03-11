@@ -7,7 +7,7 @@ It contains 4 steps :
 3. alignement and trimming (using muscle and trimAl)
 4. build the core genome tree (Using IQ-tree)
 
-** NB : BLAST, alignement and phylogeneic inference are computationaly demanding with huge datasets like the core-genome. We suggest running them on a cluster to speed up the calcualtion **  
+**NB : BLAST, alignement and phylogeneic inference are computationaly demanding with huge datasets like the core-genome. We suggest running them on a cluster to speed up the calcualtion**  
 
 # Blast all vs all
 **Requirement** : BLAST (Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool)  
