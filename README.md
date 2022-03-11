@@ -14,15 +14,15 @@ Once you have installed BLAST :
 - first, create the BLAST db for every species.
 Put all the protein file (format fasta) for each species inside a directory called "prot" (one fasta file for one species). 
 Therefore, run the script blast_db_creation.sh (modify the permission if necessary)
-'''
+```
 ./blast_db_creation.sh
-'''
+```
 The database is stored in Blast_db
 
 - Next, run all the blast (all vs all) with launch_blast.sh. Do not hesitate to modify the output format or nb of threads depending on your computer facilities
-'''
+```
 ./launch_blast.sh
-'''
+```
 # make core genome
 
 
