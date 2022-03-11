@@ -7,11 +7,11 @@ It contains 4 steps :
 3. alignement and trimming (using muscle and trimAl)
 4. build the core genome tree (Using IQ-tree)
 
-** NB : BLAST, alignement and phylogeneic inference are computationaly demanding with huge datastes like the core-genome. We suggest running them on a cluster to speed up the calcualtion **
+** NB : BLAST, alignement and phylogeneic inference are computationaly demanding with huge datasets like the core-genome. We suggest running them on a cluster to speed up the calcualtion **  
 
 # Blast all vs all
-**Requirement** : BLAST (Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool)
-To install blast on your machine follow this link [install blast](https://www.ncbi.nlm.nih.gov/books/NBK569861/).
+**Requirement** : BLAST (Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool)  
+To install blast on your machine follow this link [install blast](https://www.ncbi.nlm.nih.gov/books/NBK569861/).  
 Once you have installed BLAST :
 - first, create the BLAST db for every species.
 Put all the protein files (format fasta) for each species inside a directory called "prot" (one fasta file for one species). 
@@ -30,7 +30,7 @@ The database is stored in Blast_db
 **Requirement** : make_core_genome.py (Jean-Noël Lorenzi)
 Once you have your blast result, run the above python script to determine the core genome of all your species.
 ```
-python make_core_genome **blast_output** **run_name** **core_output**
+python make_core_genome;py **blast_output** **run_name** **core_output**
 ```
 
 This script will generate two .json files: 
