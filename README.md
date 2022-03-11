@@ -56,7 +56,7 @@ python builSuperSeq.py -input run_name_homolog_msa.afa -output output_name
 ```
 
 # build the core genome tree
-For the the phylognentic inference, we chose IQ-tree( L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, and B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies), the successor of IQPNNI and TREE-PUZZLE software.
+For the the phylognentic inference, we chose IQ-tree( L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, and B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies), the successor of IQPNNI and TREE-PUZZLE software.  
 To install IQtree use this link : [install IQTREE](http://www.iqtree.org/doc/Quickstart#installation)
 ```
 iqtree -s msa_outputname_ss.afa -nt AUTO -ntmax AUTO
