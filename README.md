@@ -14,7 +14,7 @@ It contains 4 steps :
 To install blast on your machine follow this link [install blast](https://www.ncbi.nlm.nih.gov/books/NBK569861/).  
 Once you have installed BLAST :
 - first, create the BLAST db for every species.
-Put all the protein files (format fasta) for each species inside a directory called "prot" (one fasta file for one species). 
+Put all the protein files (format fasta) for each species inside a directory called **"prot"** (one fasta file for one species). 
 Therefore, run the script blast_db_creation.sh (modify the permission if necessary).  
 Locally : 
 ```
@@ -33,7 +33,7 @@ The database is stored in Blast_db
 ./launch_blast.sh
 ```
 
-# make core genome
+## make core genome
 **Requirement** : make_core_genome.py (Jean-Noël Lorenzi)
 Once you have your blast result, run the above python script to determine the core genome of all your species.
 ```
