@@ -9,4 +9,8 @@ core_output=${core_output}
 
 cd $working_directory
 
+echo "$bl_output"
+echo "$run_name"
+echo "$core_output"
+
 python3 make_core_genome.py $bl_output $run_name $core_output
