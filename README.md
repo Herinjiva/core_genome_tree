@@ -40,7 +40,7 @@ qsub -v blast_bin="absolute/path/blastp",wd="absolute/path/core_gennome_tree" bl
 Or you can manually modified blast_bin and working_directory variable.  
 
 ## make core genome
-**Requirement** : make_core_genome.py (Jean-Noël Lorenzi), core_extract.py
+**Requirements** : make_core_genome.py (Jean-Noël Lorenzi), core_extract.py
 Once you have your blast result, run the first above python script to determine the core genome of all your species.In order to construct a fasta file of the core, use the python script core_extract.py. This script will put holomologous protein,which constitute the core genome, in a fasta file. The number of fasta file created is the size of the core genome.
 Locally:  
 ```
@@ -53,7 +53,7 @@ If you are working on PBS cluster, use the core_genome_wrapper.py:
 qsub -v wd="absolute/path/core_genome_tree",blast_output="Blast_output/",run_name="run_name",core_output="core_output_name" make_core_genome_wrapper.sh
 ```
 
-output: run_name_homolog  
+output: taxa_name_homolog  
 
 ## Multiple sequence alignement.
 **Requirements** : MUSCLE (Edgar, R.C. MUSCLE: a multiple sequence alignment method with reduced time and space complexity)
