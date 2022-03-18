@@ -9,7 +9,7 @@ It contains 4 steps :
 
 **NB : BLAST, alignement and phylogeneic inference are computationaly demanding with huge datasets like the core-genome. We suggest running them on a cluster to speed up the calcualtion**  
 
-# Blast all vs all
+## Blast all vs all
 **Requirement** : BLAST (Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool)  
 To install blast on your machine follow this link [install blast](https://www.ncbi.nlm.nih.gov/books/NBK569861/).  
 Once you have installed BLAST :
@@ -49,7 +49,7 @@ python core_extract.py -core_list core_run_name.txt -homolog hommolog_run_name.t
 ```
 output: run_name_homolog  
 
-# Multiple sequence alignement.
+## Multiple sequence alignement.
 **Requirements** : MUSCLE (Edgar, R.C. MUSCLE: a multiple sequence alignment method with reduced time and space complexity)
 To launch the phylogenetic inference tool, we need an alignement of each homologous group. We use MUSCLE to perform this task.
 muscle.sh will align sequences inside every homologous group.
@@ -62,13 +62,13 @@ After the MSA, we build a supersequence for each species
 python builSuperSeq.py -input run_name_homolog_msa.afa -output output_name
 ```
 
-# build the core genome tree
+## build the core genome tree
 For the the phylognentic inference, we chose IQ-tree( L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, and B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies), the successor of IQPNNI and TREE-PUZZLE software.  
 To install IQtree use this link : [install IQTREE](http://www.iqtree.org/doc/Quickstart#installation)
 ```
 iqtree -s msa_outputname_ss.afa -nt AUTO -ntmax AUTO
 ```
 
-# ALL at once
+## ALL at once
 If you want phylogenetic inference directly by using the core genome, use the core_genome_tree.sh script. But, be sure you have BLAST, MUSCLE and IQTREE installed.
 If you work on a cluster, add the working directory ad the beginning of the script and instead of calling BLAST,MUSCLE and IQTREE directly, use absolute path.
