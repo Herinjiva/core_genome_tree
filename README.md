@@ -15,9 +15,14 @@ To install blast on your machine follow this link [install blast](https://www.nc
 Once you have installed BLAST :
 - first, create the BLAST db for every species.
 Put all the protein files (format fasta) for each species inside a directory called "prot" (one fasta file for one species). 
-Therefore, run the script blast_db_creation.sh (modify the permission if necessary)
+Therefore, run the script blast_db_creation.sh (modify the permission if necessary).  
+Locally : 
 ```
 ./blast_db_creation.sh
+```   
+If you are working on PBS cluster:
+```
+qsub -v blast_bin="absolute/path/makebalstdb",wd="absolute/path/core_gennome_tree" blast_db_creation.sh
 ```
 The database is stored in Blast_db
 
