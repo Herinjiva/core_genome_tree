@@ -24,8 +24,10 @@ If you are working on PBS cluster:
 ```
 qsub -v blast_bin="absolute/path/makebalstdb",wd="absolute/path/core_gennome_tree" blast_db_creation.sh
 ```
+Or you can manually modified blast_bin and working_directory variable.  
+  
 The database is stored in Blast_db
-
+  
 - Next, run all the blast (all vs all) with launch_blast.sh. Do not hesitate to modify number of threads depending on your computer facilities. BLAST result will be stored in Blast_output
 ```
 ./launch_blast.sh
