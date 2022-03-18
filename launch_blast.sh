@@ -10,10 +10,13 @@
 # bash launch_blast.sh
 
 ##### PARAMETERS #####
-
+blast_bin=${blast_bin:-blastp}
+working_directory=${wd:-.}
 path_to_db=./Blast_db/
 path_to_prot_file=./prot/
 path_to_blast_out=./Blast_output/
+
+cd $working_directory
 
 ##### END PARAMETERS #
 
@@ -37,7 +40,7 @@ do
                         echo "OUT: "$out
                         echo "RUNNING BLAST..."
                         echo ""
-                        ./ncbi-blast-2.10.1+/bin/blastp -query $set1 -db $db -out $out -num_threads 2 -outfmt '7 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen gaps'
+                        $blast_bin -query $set1 -db $db -out $out -num_threads 2 -outfmt '7 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen gaps'
                 fi
         done
 done
