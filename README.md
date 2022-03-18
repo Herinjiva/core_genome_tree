@@ -40,11 +40,12 @@ qsub -v blast_bin="absolute/path/blastp",wd="absolute/path/core_gennome_tree" bl
 Or you can manually modified blast_bin and working_directory variable.  
 
 ## make core genome
-**Requirement** : make_core_genome.py (Jean-Noël Lorenzi)
-Once you have your blast result, run the above python script to determine the core genome of all your species.  
+**Requirement** : make_core_genome.py (Jean-Noël Lorenzi), core_extract.py
+Once you have your blast result, run the first above python script to determine the core genome of all your species.In order to construct a fasta file of the core, use the python script core_extract.py. This script will put holomologous protein,which constitute the core genome, in a fasta file. The number of fasta file created is the size of the core genome.
 Locally:  
 ```
 python make_core_genome;py **blast_output_directory** **run_name** **core_output_directory**
+python core_extract.py -core_list core_output_directory/core_run_name.txt -homolog -homolog_run_name.txt -taxa_name prot/
 ```
   
 If you are working on PBS cluster, use the core_genome_wrapper.py:
@@ -52,14 +53,6 @@ If you are working on PBS cluster, use the core_genome_wrapper.py:
 qsub -v wd="absolute/path/core_genome_tree",blast_output="Blast_output/",run_name="run_name",core_output="core_output_name" make_core_genome_wrapper.sh
 ```
 
-This script will generate two .json files: 
-- core_run_name.txt : the list of core genome for each species in dictionnary format (key : species ID, value : list of protein belonging to the core)
-- hommolog_run_name.txt : dictionnary of homologs for each proteins of each species in other species.
-
-At this step, you only have the list of the core genome. In order to construct a fasta file of the core, use the python script core_extract.py. This script will put holomologous protein,which constitute the core genome, in a fasta file. The number of fasta file created is the size of the core genome.
-```
-python core_extract.py -core_list core_run_name.txt -homolog hommolog_run_name.txt -taxa_name prot/
-```
 output: run_name_homolog  
 
 ## Multiple sequence alignement.
