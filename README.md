@@ -41,10 +41,17 @@ Or you can manually modified blast_bin and working_directory variable.
 
 ## make core genome
 **Requirement** : make_core_genome.py (Jean-Noël Lorenzi)
-Once you have your blast result, run the above python script to determine the core genome of all your species.
+Once you have your blast result, run the above python script to determine the core genome of all your species.  
+Locally:  
 ```
-python make_core_genome;py **blast_output** **run_name** **core_output**
+python make_core_genome;py **blast_output_directory** **run_name** **core_output_directory**
 ```
+  
+If you are working on PBS cluster, use the core_genome_wrapper.py:
+```
+qsub -v wd="absolute/path/core_genome_tree",blast_output="Blast_output/",run_name="run_name",core_output="core_output_name" make_core_genome_wrapper.sh
+```
+
 This script will generate two .json files: 
 - core_run_name.txt : the list of core genome for each species in dictionnary format (key : species ID, value : list of protein belonging to the core)
 - hommolog_run_name.txt : dictionnary of homologs for each proteins of each species in other species.
