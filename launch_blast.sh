@@ -40,7 +40,7 @@ do
                         echo "OUT: "$out
                         echo "RUNNING BLAST..."
                         echo ""
-                        $blastp -query $set1 -db $db -out $out -num_threads 2 -outfmt '7 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen gaps'
+                        $blast_bin -query $set1 -db $db -out $out -num_threads 2 -outfmt '7 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen gaps'
                 fi
         done
 done
